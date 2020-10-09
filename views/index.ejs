@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partial/header.ejs') %>
+<body>
+    
+    <%- include('./partial/nav.ejs') %>
+    
+   <div class="container">
+       <h3>Most Favourite Blogs</h3>
+       <hr>
+       <% if(blogs.length > 0 ){ %>
+        <% blogs.forEach(blog=>{ %> 
+            <div id="card">
+                <a href="/blogs/<%= blog.id%>" id="aa">
+                    <div id="title">
+                        <h3 class="title mt-3 mb-3"><i class="fa fa-plane ml-4 mr-4" aria-hidden="true"></i><%= blog.title %></h3>
+                    </div>
+                    <div id="snippet">
+                        <p class="snippet"><%= blog.snippet%></p>
+                    </div>
+                    <div id="photo">
+                        <img src=<%= blog.photo %>>
+                    </div>
+                </a>
+
+            </div>  
+            <hr>     
+          <% }) %>
+       <% } %>
+   </div>
+   <%- include('./partial/footer.ejs') %>
+</body>
+</html>
